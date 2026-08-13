@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GAME SOLVER</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>GAME SOLVER</h1>
+    <p id="status" class="status">Waiting</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <button id="analyze" class="primary">Analyze Level</button>
+      <div class="info-grid">
+        <div><span class="label">Board:</span><span id="board-size">-</span></div>
+        <div><span class="label">Stars:</span><span id="stars">0 / 0</span></div>
+      </div>
+    </section>
+
+    <section id="solution-section" class="panel" hidden>
+      <h2>Solution</h2>
+      <pre id="solution"></pre>
+    </section>
+
+    <section class="panel">
+      <div class="controls">
+        <button id="run" class="primary" disabled>Run Solution</button>
+        <button id="pause" disabled>Pause</button>
+        <button id="resume" disabled>Resume</button>
+        <button id="stop" disabled>Stop</button>
+      </div>
+      <div class="speed">
+        <label for="speed">Execution speed <span id="speed-label">250 ms</span></label>
+        <input type="range" id="speed" min="0" max="4" step="1" value="2" list="speed-ticks">
+        <datalist id="speed-ticks">
+          <option value="0" label="50"></option>
+          <option value="1" label="100"></option>
+          <option value="2" label="250"></option>
+          <option value="3" label="500"></option>
+          <option value="4" label="1000"></option>
+        </datalist>
+      </div>
+      <div id="progress" class="progress" hidden>
+        <div class="progress-bar" id="progress-bar"></div>
+        <span id="progress-label"></span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <label class="toggle"><input type="checkbox" id="debug"> Debug Mode</label>
+      <pre id="debug-panel" class="debug-panel" hidden></pre>
+      <div id="board-render" class="board-render" hidden></div>
+    </section>
+
+    <p id="message" class="message" aria-live="polite"></p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
